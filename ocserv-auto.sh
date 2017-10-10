@@ -517,11 +517,11 @@ function ConfigFirewall {
         #iptables -t nat -A POSTROUTING -j MASQUERADE
         service iptables save
     else
-	    systemctl stop firewalld
-		systemctl mask firewalld
-		yum install iptables-services
-		systemctl enable iptables
-		systemctl start iptables
+        systemctl stop firewalld
+        systemctl mask firewalld
+        yum install iptables-services
+        systemctl enable iptables
+        systemctl start iptables
         iptables -I INPUT -p tcp --dport ${port} -j ACCEPT
         iptables -I INPUT -p udp --dport ${port} -j ACCEPT
         iptables -I FORWARD -s ${vpnnetwork} -j ACCEPT
