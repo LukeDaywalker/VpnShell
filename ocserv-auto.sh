@@ -59,7 +59,7 @@ function ConfigEnvironmentVariable {
     servercert=${2-server-cert.pem}
     serverkey=${3-server-key.pem}
     #配置目录，你可更改为 /etc/ocserv 之类的
-    confdir="/usr/local/etc/ocserv"
+    confdir="/etc/ocserv"
 
     #安装系统组件
     yum install -y -q net-tools bind-utils
