@@ -19,20 +19,15 @@ ocserv
 	chmod +x chinaroute.sh
     ./chinaroute.sh
 	
-	vim /etc/crontab
+	vi /etc/rc.d/rc.local
 	============
-	0 19 * * 2 root /bin/sh root/chinaroute.sh
+	/sbin/service crond start 
 	============
-	service crond reload
 	
-	启动：
-	service crond start
-	重启：
-	service crond restart
-	最后还有一个简单的停止：
-	service crond stop
-	
-	service crond status
+	crontab -e
+	============
+	0 19 * * 2 root /bin/sh /root/chinaroute.sh
+	============
 	
 ### Setting
 
