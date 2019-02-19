@@ -147,7 +147,7 @@ function CompileOcserv {
     #yum update -y -q
     yum install -y -q epel-release
     #安装ocserv依赖组件
-    yum install -y gnutls gnutls-utils gnutls-devel readline readline-devel \
+    yum install -y libev-devel gnutls gnutls-utils gnutls-devel readline readline-devel \
     libnl-devel libtalloc libtalloc-devel libnl3-devel wget \
     pam pam-devel libtalloc-devel xz libseccomp-devel \
     tcp_wrappers-devel autogen autogen-libopts-devel tar \
@@ -223,7 +223,7 @@ _EOF_
     cp "${servercert}" "${confdir}" && cp "${serverkey}" "${confdir}"
 
     #编辑配置文件
-    (echo "${password}"; sleep 1; echo "${password}") | ocserv-${version}/src/ocpasswd -c "${confdir}/ocpasswd" ${username}
+    (echo "${password}"; sleep 1; echo "${password}") | ocpasswd -c "${confdir}/ocpasswd" ${username}
 
     sed -i "s#./sample.passwd#${confdir}/ocpasswd#g" "${confdir}/ocserv.conf"
     sed -i "s#server-cert = ../tests/server-cert.pem#server-cert = ${confdir}/${servercert}#g" "${confdir}/ocserv.conf"
