@@ -35,6 +35,9 @@ ocserv
     vi /etc/ocserv/ocserv.conf
 	...
     systemctl start ocserv.service
+	
+	#username为你要添加的用户名
+	ocpasswd -c /etc/ocserv/ocpasswd username
 
 ss
 --
