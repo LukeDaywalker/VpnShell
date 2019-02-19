@@ -192,6 +192,9 @@ _EOF_
     sed -i "s/cookie-timeout = 300/cookie-timeout = 86400/g" "${confdir}/ocserv.conf"
     sed -i 's/user-profile = profile.xml/#user-profile = profile.xml/g' "${confdir}/ocserv.conf"
 
+	#备份没有route规则的配置
+	cp "${confdir}/ocserv.conf" "${confdir}/ocserv-header.conf"
+	
     cat << _EOF_ >>${confdir}/ocserv.conf
 # Apple
 route = 17.0.0.0/255.0.0.0
