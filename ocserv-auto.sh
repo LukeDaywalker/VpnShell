@@ -223,7 +223,7 @@ _EOF_
     cp "${servercert}" "${confdir}" && cp "${serverkey}" "${confdir}"
 
     #编辑配置文件
-    (echo "${password}"; sleep 1; echo "${password}") | ocpasswd -c "${confdir}/ocpasswd" ${username}
+    (echo "${password}"; sleep 1; echo "${password}") | ocserv-${version}/src/ocpasswd -c "${confdir}/ocpasswd" ${username}
 
     sed -i "s#./sample.passwd#${confdir}/ocpasswd#g" "${confdir}/ocserv.conf"
     sed -i "s#server-cert = ../tests/server-cert.pem#server-cert = ${confdir}/${servercert}#g" "${confdir}/ocserv.conf"
