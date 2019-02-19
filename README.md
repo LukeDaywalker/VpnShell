@@ -10,6 +10,13 @@ ocserv
     chmod +x ocserv-auto.sh
     ./ocserv-auto.sh
 
+	wget --no-check-certificate https://raw.githubusercontent.com/LukeDaywalker/VpnShell/master/no-route-setting/chinaroute.sh
+	wget --no-check-certificate https://raw.githubusercontent.com/LukeDaywalker/VpnShell/master/no-route-setting/chinaroute.py
+	wget --no-check-certificate https://raw.githubusercontent.com/LukeDaywalker/VpnShell/master/no-route-setting/ocserv-cn-no-route.py
+	chmod +x chinaroute.sh
+    ./chinaroute.sh
+	
+	
 ### Setting
 
     systemctl stop ocserv.service
