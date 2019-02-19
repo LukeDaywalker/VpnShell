@@ -21,7 +21,7 @@ ocserv
 	
 	vim /etc/crontab
 	============
-	0 19 * * 2 root sh root/chinaroute.sh
+	0 19 * * 2 root /bin/sh root/chinaroute.sh
 	============
 	service crond reload
 	
@@ -31,6 +31,8 @@ ocserv
 	service crond restart
 	最后还有一个简单的停止：
 	service crond stop
+	
+	service crond status
 	
 ### Setting
 
