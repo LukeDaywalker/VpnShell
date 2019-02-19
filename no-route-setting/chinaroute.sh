@@ -7,9 +7,14 @@ cat delegated-afrinic-extended-latest delegated-apnic-extended-latest delegated-
 cat delegated-all-latest | grep ipv4 | grep CN | awk -F\| '{ printf("%s/%d\n", $4, 32-log($5)/log(2)) }' >cnroute.txt
 rm -f delegated*
 python chinaroute.py
+rm -f cnroute.txt
 
 cp /etc/ocserv/ocserv-header.conf ocserv-header.conf
 python ocserv-cn-no-route.py
 cat ocserv-header.conf cn-no-route2.txt >ocserv.conf
+
+systemctl stop ocserv.service
 mv -f ocserv.conf /etc/ocserv/ocserv.conf
+systemctl start ocserv.service
+
 rm -f ocserv-header.conf cn-no-route2.txt

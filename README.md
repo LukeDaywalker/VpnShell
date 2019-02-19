@@ -10,12 +10,27 @@ ocserv
     chmod +x ocserv-auto.sh
     ./ocserv-auto.sh
 
+	
+	yum install python-netaddr -y
+
 	wget --no-check-certificate https://raw.githubusercontent.com/LukeDaywalker/VpnShell/master/no-route-setting/chinaroute.sh
 	wget --no-check-certificate https://raw.githubusercontent.com/LukeDaywalker/VpnShell/master/no-route-setting/chinaroute.py
 	wget --no-check-certificate https://raw.githubusercontent.com/LukeDaywalker/VpnShell/master/no-route-setting/ocserv-cn-no-route.py
 	chmod +x chinaroute.sh
     ./chinaroute.sh
 	
+	vim /etc/crontab
+	============
+	0 19 * * 2 root sh root/chinaroute.sh
+	============
+	service crond reload
+	
+	启动：
+	service crond start
+	重启：
+	service crond restart
+	最后还有一个简单的停止：
+	service crond stop
 	
 ### Setting
 
